@@ -1,0 +1,162 @@
+body {
+    background: transparent;
+    /* background-image: url("../images/image.png"); */
+    margin:0;
+    padding:0;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    user-select: none;
+}
+
+::-webkit-scrollbar {
+  width: 0.5vw;
+}
+
+::-webkit-scrollbar-track {
+    background: none;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #bdc3c7;   
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.container {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 55vw;
+    height: 35vw;
+    background: #2c3e50f2;
+    border-radius: 1vw;
+}
+
+#left-container {
+    left: 3vw;
+}
+
+#right-container {
+    right: 3vw;
+}
+
+.top-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: grey solid 0.1vw;
+}
+
+.middle-section {
+    display: flex;
+    flex-wrap: wrap;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding-top: 1.5vw;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.middle-section > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5vw;
+}
+
+.middle-section > div > div {
+    font-size: 1.7vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 1vw;
+    width: 24vw;
+    border-radius: 1vw;
+}
+
+.middle-section > div > div > div:first-child {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    margin-bottom: 0.5vw;
+}
+
+.middle-section > div > div > div:first-child > span:first-child  {
+    font-weight: bold;
+}
+
+.middle-section > div > div > div:first-child > div:nth-child(2) {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-left: auto;
+}
+
+.middle-section > div > div > div:first-child > div:nth-child(2) > span:nth-child(1) {
+    font-size: 1vw;
+    font-weight: bold;
+}
+
+.middle-section > div > div > div:first-child > div:nth-child(2) > span:nth-child(2)  {
+    font-size: 0.8vw;
+}
+
+/* .middle-section > div {
+    flex-basis: 50%;
+    height: 10vw;
+    background-color: rgba(0, 0, 0, 0.5);
+} */
+
+.progress-bar {
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 0.5vw;
+    border-radius: 1vw;
+}
+
+.progress-value {
+    width: 0;
+    height: 100%;
+    background-color: white;
+    border-radius: 1vw;
+}
+
+.bottom-section {
+    display: flex;
+}
+
+h1 {
+    font-size: 2vw;
+}
+
+.exit {
+    cursor: pointer;
+    position: absolute;
+    top: 0.5vw;
+    right: 0.5vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.1vw;
+    color: white;
+    background-color: rgb(175, 0, 0);
+    width: 1.5vw;
+    height: 1.5vw;
+    transition: 0.25s;
+    border-radius: 1vw;
+}
+
+.exit:hover {
+    background-color: red;
+}
+
+.quantity-plus, .quantity-minus {
+    cursor: pointer;
+}
