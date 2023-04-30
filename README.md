@@ -33,7 +33,7 @@ print(nextLevelXP)
 ```
 ### GetCategoryLevel(name)
 ```lua
-local level = GetCategoryLevel("farming", 5000)
+local level = GetCategoryLevel("farming")
 print(level)
 ```
 
@@ -71,5 +71,3 @@ end)
 ```lua
 RegisterXPCategory("farming", "Farming", 1000, 0.5, 10)
 ```
-exports("InitializePlayerXP", InitializePlayerXP)
-exports("RegisterXPCategory", RegisterXPCategory)
