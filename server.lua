@@ -102,9 +102,7 @@ end
 RegisterNetEvent("pickle_xp:initializePlayer", function()
     local source = source
     TriggerClientEvent("pickle_xp:updateCategories", source, Categories)
-    InitializePlayerXP(source, function()
-        AddPlayerXP(source, "tools", 2000)
-    end)
+    InitializePlayerXP(source)
 end)
 
 exports("AddPlayerXP", AddPlayerXP)
