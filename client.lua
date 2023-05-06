@@ -68,8 +68,10 @@ exports("GetXPData", GetXPData)
 exports("GetXP", GetXP)
 exports("GetLevel", GetLevel)
 
-CreateThread(function()
-    -- TODO: REMOVE THIS
-    Wait(1000)
-    TriggerServerEvent("pickle_xp:initializePlayer")
+AddEventHandler('onResourceStart', function(resourceName)
+  if (GetCurrentResourceName() ~= resourceName) then
+    return
+  end
+  Wait(1000)
+  TriggerServerEvent("pickle_xp:initializePlayer")
 end)
