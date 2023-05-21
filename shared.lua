@@ -3,14 +3,13 @@ function GetLevelXP(index, level)
     if not category then return 0 end
     local currentLevel = 1
     local required = category.xpStart
-    while currentLevel ~= level do 
+    repeat
         currentLevel = currentLevel + 1
         if category.maxLevel == currentLevel - 1 then 
             break
         end
         required = required + (required * category.xpFactor)
-        Wait(0)
-    end
+    until currentLevel == level
     return math.ceil(required)
 end
 
@@ -20,7 +19,7 @@ function GetCategoryLevel(index, xp)
     local currentLevel = 1
     local lastLevel = 1
     local required = category.xpStart
-    while required <= xp do 
+    repeat
         lastLevel = currentLevel
         currentLevel = currentLevel + 1
         required = required + (required * category.xpFactor)
@@ -28,8 +27,7 @@ function GetCategoryLevel(index, xp)
             currentLevel = lastLevel
             break
         end
-        Wait(0)
-    end
+    until required > xp
     return math.ceil(currentLevel)
 end
 
