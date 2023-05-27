@@ -55,7 +55,6 @@ function HideSkills() {
 }
 
 $(document).ready(function () {
-    console.log("HELLO2")
     $(document).on("click", ".exit", function(event) {
         HideSkills()
         post("hide")
@@ -64,7 +63,6 @@ $(document).ready(function () {
 
 window.addEventListener("message", function(ev) {
     var event = ev.data
-    console.log("HELLO")
     if (event.type == "show") {
         DisplayXP(event.data)
     }
