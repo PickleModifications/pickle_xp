@@ -73,7 +73,8 @@ end
 
 function InitializePlayerXP(source, cb)
     if XP[source] then
-        return cb()
+        if cb then cb() end
+        return
     end
     local identifier = GetIdentifier(source)
     MySQL.Async.fetchAll("SELECT * FROM player_xp WHERE identifier=@identifier;", {["@identifier"] = identifier}, function(results)
