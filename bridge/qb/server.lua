@@ -2,8 +2,8 @@ if GetResourceState('qb-core') ~= 'started' then return end
 
 QBCore = exports['qb-core']:GetCoreObject()
 
-function ShowNotification(target, text)
-	TriggerClientEvent(GetCurrentResourceName()..":showNotification", target, text)
+function ShowNotification(target, text, nType)
+	TriggerClientEvent(GetCurrentResourceName()..":showNotification", target, text, nType)
 end
 
 function GetIdentifier(source)

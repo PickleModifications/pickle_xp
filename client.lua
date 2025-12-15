@@ -25,11 +25,38 @@ function GetXPData()
 end
 
 function ShowDisplay()
-    SendNUIMessage({
-        type = "show",
-        data = GetXPData()
-    })
-    SetNuiFocus(true, true)
+    if Config.UseOxLib and GetResourceState('ox_lib') == 'started' then
+        -- Use ox_lib context menu
+        local contextMenu = {}
+        local data = GetXPData()
+        
+        for k, v in pairs(data) do
+            local xp = (v.xp > v.level_xp and v.level_xp or v.xp)
+            local progress = math.floor((xp / v.level_xp) * 100)
+            
+            table.insert(contextMenu, {
+                title = v.label,
+                description = ('Level %s | XP: %s / %s (%s%%)'):format(v.level, xp, v.level_xp, progress),
+                icon = 'star',
+                iconColor = progress >= 75 and '#00ff00' or progress >= 50 and '#ffff00' or '#ff0000'
+            })
+        end
+        
+        lib.registerContext({
+            id = 'pickle_xp_menu',
+            title = 'XP System',
+            options = contextMenu
+        })
+        
+        lib.showContext('pickle_xp_menu')
+    else
+        -- Use original NUI
+        SendNUIMessage({
+            type = "show",
+            data = GetXPData()
+        })
+        SetNuiFocus(true, true)
+    end
 end
 
 RegisterNUICallback("hide", function()
@@ -62,7 +89,7 @@ end)
 
 RegisterCommand(Config.MenuCommand, function()
     ShowDisplay()
-end)
+end, false)
 
 exports("GetXPData", GetXPData)
 exports("GetXP", GetXP)

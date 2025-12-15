@@ -1,16 +1,23 @@
 Config = {}
 
+-- Framework Settings (auto-detect if left as 'auto')
+-- Options: 'auto', 'esx', 'qb', 'qbx', 'standalone'
+Config.Framework = 'auto'
+
 Config.Language = "en"
 
 Config.NotifyXP = true
 
 Config.MenuCommand = "xpdisplay"
 
+-- Use ox_lib context menu instead of NUI (set to false for original NUI)
+Config.UseOxLib = true
+
 Config.Categories = {
-    ["example"] = {
-        label = "Example", -- Label of the category in the display & notifications.
-        xpStart = 1000, -- Level 2 XP requirement.
-        xpFactor = 0.5, -- Multiplier for much to increase the next level's XP requirement.
-        maxLevel = 10 -- Maximum level achievable.
+    ["firefighter"] = {
+        label = "Firefighter", 
+        xpStart = 1000, 
+        xpFactor = 0.2, 
+        maxLevel = 2
     },
 }

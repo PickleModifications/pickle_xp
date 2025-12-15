@@ -1,6 +1,8 @@
 fx_version "cerulean"
 game "gta5"
-version "v1.0.4"
+version "v1.1.0"
+author "Pickle Mods - Updated for QBox & ox_lib"
+description "XP System with multi-framework support"
 
 ui_page "nui/index.html"
 
@@ -10,6 +12,7 @@ files {
 } 
 
 shared_scripts {
+	'@ox_lib/init.lua',
 	"config.lua",
 	"locales/locale.lua",
     "locales/translations/*.lua",
@@ -22,9 +25,14 @@ client_scripts {
 }
 
 server_scripts {
-	"@mysql-async/lib/MySQL.lua",
+	"@oxmysql/lib/MySQL.lua",
     'bridge/**/server.lua',
 	"server.lua",
+}
+
+dependencies {
+	'oxmysql',
+	'ox_lib'
 }
 
 lua54 'yes'
