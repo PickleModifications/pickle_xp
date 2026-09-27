@@ -1,6 +1,6 @@
 fx_version "cerulean"
 game "gta5"
-version "v1.1.0"
+version "v1.1.1"
 author "Pickle Mods - Updated for QBox & ox_lib"
 description "XP System with multi-framework support"
 
